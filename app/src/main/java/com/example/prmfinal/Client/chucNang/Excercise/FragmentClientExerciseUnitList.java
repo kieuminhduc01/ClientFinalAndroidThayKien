@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.prmfinal.Client.dao.Dao;
 import com.example.prmfinal.Client.model.Exercise;
 import com.example.prmfinal.R;
-import com.example.prmfinal.Client.chucNang.Excercise.Adapter.ClientExerciseUnit;
+import com.example.prmfinal.Client.chucNang.Excercise.Adapter.ClientExerciseUnitAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +37,7 @@ public class FragmentClientExerciseUnitList extends Fragment {
 
     //variables
     private ArrayList<Exercise> exercisesList;
-    private ClientExerciseUnit clientExerciseUnit;
+    private ClientExerciseUnitAdapter clientExerciseUnitAdapter;
 
 
 
@@ -127,8 +125,8 @@ public class FragmentClientExerciseUnitList extends Fragment {
                     exercise.setName(snapshot.child("name").getValue().toString());
 
                     exercisesList.add(exercise);
-                    clientExerciseUnit = new ClientExerciseUnit(getContext(), exercisesList);
-                    rvExercises.setAdapter(clientExerciseUnit);
+                    clientExerciseUnitAdapter = new ClientExerciseUnitAdapter(getContext(), exercisesList);
+                    rvExercises.setAdapter(clientExerciseUnitAdapter);
                 }
             }
 
@@ -143,8 +141,8 @@ public class FragmentClientExerciseUnitList extends Fragment {
     private void ClearAll() {
         if (exercisesList != null) {
             exercisesList.clear();
-            if (clientExerciseUnit != null) {
-                clientExerciseUnit.notifyDataSetChanged();
+            if (clientExerciseUnitAdapter != null) {
+                clientExerciseUnitAdapter.notifyDataSetChanged();
             }
         }
 

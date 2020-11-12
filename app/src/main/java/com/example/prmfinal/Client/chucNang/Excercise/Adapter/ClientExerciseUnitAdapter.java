@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import com.bumptech.glide.Glide;
 
 
-public class ClientExerciseUnit extends RecyclerView.Adapter<ClientExerciseUnit.ViewHolder> {
+public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerciseUnitAdapter.ViewHolder> {
     private static final String Tag="RecyclerView";
     private Context mContext;
     private ArrayList<Exercise> exerciseArrayList;
 
-    public ClientExerciseUnit(Context mContext,ArrayList<Exercise> exerciseArrayList){
+    public ClientExerciseUnitAdapter(Context mContext, ArrayList<Exercise> exerciseArrayList){
         this.mContext=mContext;
         this.exerciseArrayList=exerciseArrayList;
     }

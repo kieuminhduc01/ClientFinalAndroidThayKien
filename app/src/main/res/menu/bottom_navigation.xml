@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_exercise"
+        android:icon="@drawable/client_navigation_exercise"
+        android:title=""
+    />
+    <item
+        android:id="@+id/nav_personal_information"
+        android:icon="@drawable/client_navigation_personal_information"
+        android:title=""
+    />
+    <item
+        android:id="@+id/nav_shopping"
+        android:icon="@drawable/client_navigation_shopping"
+        android:title=""
+    />
+    <item
+        android:id="@+id/nav_nutries"
+        android:icon="@drawable/client_navigation_nutries"
+        android:title=""
+    />
+</menu>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.workoutapp2.area.Client.chucNang.PersonalInformation.FragmentClientBodyInfo">
+
+        <!-- TODO: Update blank fragment layout -->
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="40dp"
+            android:text="Trainning Information"
+            android:textColor="#000000"
+            android:textSize="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/txtHeight"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="51dp"
+            android:ems="10"
+            android:hint="Height(Cm)"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <EditText
+            android:id="@+id/txtWeight"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Weight"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHeight" />
+
+        <EditText
+            android:id="@+id/txtMaxRepPushUp"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Max rep push up"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWeight" />
+
+        <EditText
+            android:id="@+id/txtMaxRepPullUp"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Max rep pull up"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPushUp" />
+
+        <EditText
+            android:id="@+id/txtMaxRepSquats"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Max rep squats"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPullUp" />
+
+        <Spinner
+            android:id="@+id/spMucDichTap"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepSquats" />
+
+        <Spinner
+            android:id="@+id/spLevel"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spMucDichTap" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:text="Goal"
+            app:layout_constraintBottom_toTopOf="@+id/spMucDichTap"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:text="Level"
+            app:layout_constraintBottom_toTopOf="@+id/spLevel"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

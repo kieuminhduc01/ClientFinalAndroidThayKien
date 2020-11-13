@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExercise;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnitList;
 import com.example.prmfinal.Client.chucNang.PersonalInformation.FragmentClientPersonalInformation;
+import com.example.prmfinal.Client.constant.model.ExerciseFillterType;
+import com.example.prmfinal.Client.constant.model.Level;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,13 +26,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemReselectedListener =
+
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.nav_exercise:
-                            selectedFragment = new FragmentClientExerciseUnitList();
+                            selectedFragment = new FragmentClientExerciseUnitList(ExerciseFillterType.Level, Level.Beginner);
                             break;
 
                         case R.id.nav_personal_information:
@@ -45,5 +48,4 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
-
 }

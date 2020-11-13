@@ -7,5 +7,4 @@ public class MuscleFocus {
     public static String Arms="Arms";
     public static String Legs="Legs";
     public static String FullBody="FullBody";
-
 }

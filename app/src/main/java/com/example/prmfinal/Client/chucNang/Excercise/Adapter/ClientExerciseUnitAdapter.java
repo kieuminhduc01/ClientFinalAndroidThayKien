@@ -32,7 +32,7 @@ public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerci
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_client_exercise_unit,parent,false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view,mListener);
     }
 
     @Override
@@ -58,11 +58,35 @@ public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerci
         ImageView imageView;
         TextView textView;
 
-        public ViewHolder(View itemView){
+        public ViewHolder(View itemView, final OnItemClickListener listener){
             super(itemView);
 
             imageView=itemView.findViewById(R.id.imgExercise);
             textView=itemView.findViewById(R.id.lblNameOfExercise);
+            itemView.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    if(listener!=null){
+                        int position=getAdapterPosition();
+                        if(position!=RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
+    }
+
+
+    //variable interface
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener=listener;
     }
 }

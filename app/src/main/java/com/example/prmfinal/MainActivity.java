@@ -12,6 +12,8 @@ import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnit
 import com.example.prmfinal.Client.chucNang.PersonalInformation.FragmentClientPersonalInformation;
 import com.example.prmfinal.Client.constant.model.ExerciseFillterType;
 import com.example.prmfinal.Client.constant.model.Level;
+import com.example.prmfinal.Client.data.ExternalData;
+import com.example.prmfinal.Client.logicUtil.ScuccessLogic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ExternalData.ExercisesSuggess= ScuccessLogic.ExercisesSuggest();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemReselectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentClientExercise()).commit();
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemReselectedListener =
@@ -33,11 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.nav_exercise:
-                            selectedFragment = new FragmentClientExerciseUnitList(ExerciseFillterType.Level, Level.Beginner);
                             break;
 
                         case R.id.nav_personal_information:
-                            selectedFragment = new FragmentClientPersonalInformation();
                             break;
 
                         case R.id.nav_nutries:
@@ -48,4 +50,5 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
             };
+
 }

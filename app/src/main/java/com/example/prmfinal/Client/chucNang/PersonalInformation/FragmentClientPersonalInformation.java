@@ -4,9 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.prmfinal.Client.model.User;
 import com.example.prmfinal.R;
 
 /**
@@ -15,6 +23,13 @@ import com.example.prmfinal.R;
  * create an instance of this fragment.
  */
 public class FragmentClientPersonalInformation extends Fragment {
+
+    private TextView txtUserNameRegister;
+    private EditText txtName;
+    private EditText txtEmail;
+    private EditText txtPhoneNumber;
+    private Button btnSave;
+    private static User user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,8 +40,9 @@ public class FragmentClientPersonalInformation extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentClientPersonalInformation() {
+    public FragmentClientPersonalInformation(User user) {
         // Required empty public constructor
+        this.user=user;
     }
 
     /**
@@ -39,7 +55,7 @@ public class FragmentClientPersonalInformation extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentClientPersonalInformation newInstance(String param1, String param2) {
-        FragmentClientPersonalInformation fragment = new FragmentClientPersonalInformation();
+        FragmentClientPersonalInformation fragment = new FragmentClientPersonalInformation(user);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,4 +78,36 @@ public class FragmentClientPersonalInformation extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_client_personal_information, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        txtEmail = (EditText) view.findViewById(R.id.txtEmail);
+        txtName = (EditText) view.findViewById(R.id.txtName);
+        txtPhoneNumber = (EditText) view.findViewById(R.id.txtPhoneNumber);
+        txtUserNameRegister = (TextView) view.findViewById(R.id.txtUserNameRegister);
+        btnSave = (Button) view.findViewById(R.id.btnSave);
+
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               setMoreUserInfor();
+
+                FragmentClientBodyInfo fragmentClientPersonalInformation = new FragmentClientBodyInfo(user);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragmentClientPersonalInformation);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+    }
+    private void setMoreUserInfor(){
+        user.setEmail(txtEmail.getText().toString());
+        user.setName(txtName.getText().toString());
+        user.setPhoneNumber(txtPhoneNumber.getText().toString());
+    }
+
 }

@@ -13,25 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.Button;
 
-import com.example.prmfinal.Client.Data.ExternalData;
-import com.example.prmfinal.Client.constant.model.ExerciseFillterType;
-import com.example.prmfinal.Client.dao.Dao;
+import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.model.Exercise;
 import com.example.prmfinal.R;
 import com.example.prmfinal.Client.chucNang.Excercise.Adapter.ClientExerciseUnitAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import java.util.Arrays;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,12 +30,11 @@ import java.util.List;
 public class FragmentClientExerciseUnitList extends Fragment implements ClientExerciseUnitAdapter.OnItemClickListener {
 
     //BEGIN declare
+    private Button btnStart;
     private RecyclerView rvExercises;
-    private DatabaseReference myRef;
-    private ArrayList<Exercise> exercisesList;
     private ClientExerciseUnitAdapter clientExerciseUnitAdapter;
-    private static String fillterTypeExercise;
-    private static String fillterContentExercise;
+    private static ArrayList<Exercise> exerciseArrayList;
+
     //END Declare
 
     // TODO: Rename parameter arguments, choose names that match
@@ -58,10 +46,9 @@ public class FragmentClientExerciseUnitList extends Fragment implements ClientEx
     private String mParam1;
     private String mParam2;
 
-    public FragmentClientExerciseUnitList(String fillterTypeExercise,String fillterContentExercise) {
+    public FragmentClientExerciseUnitList(ArrayList<Exercise> exerciseArrayList) {
         // Required empty public constructor
-        this.fillterTypeExercise=fillterTypeExercise;
-        this.fillterContentExercise=fillterContentExercise;
+        this.exerciseArrayList=exerciseArrayList;
     }
 
     /**
@@ -74,7 +61,7 @@ public class FragmentClientExerciseUnitList extends Fragment implements ClientEx
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentClientExerciseUnitList newInstance(String param1, String param2) {
-        FragmentClientExerciseUnitList fragment = new FragmentClientExerciseUnitList(fillterTypeExercise,fillterContentExercise);
+        FragmentClientExerciseUnitList fragment = new FragmentClientExerciseUnitList(exerciseArrayList);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -103,116 +90,37 @@ public class FragmentClientExerciseUnitList extends Fragment implements ClientEx
         super.onViewCreated(view, savedInstanceState);
 
         //BEGIN define
+        btnStart = view.findViewById(R.id.btnStart);
+
         //recycle view
         rvExercises = view.findViewById(R.id.rvExercises);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvExercises.setLayoutManager(layoutManager);
         rvExercises.setHasFixedSize(true);
 
-        //firebase
-        myRef = FirebaseDatabase.getInstance().getReference();
+        setAdapterItemClick(exerciseArrayList);
+        rvExercises.setAdapter(clientExerciseUnitAdapter);
 
-        //ArrayList
-        exercisesList = new ArrayList<>();
-        //END define
-
-        //Clear Arraylist
-        ClearAll();
-
-        //get data method
-        FillDataToRecycleView();
-
-    }
-
-    private void FillDataToRecycleView() {
-
-        readData(new FirebaseCallBack() {
+        btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCallBack(ArrayList<Exercise> list) {
-                ExternalData.Exercises=exercisesList;
-            }
-        });
-    }
+            public void onClick(View v) {
 
-    //BEGIN Function for firebase
-    private Exercise GetAnExercise(DataSnapshot snapshot) {
-        Exercise exercise = new Exercise();
-        exercise.setCaloriesPerRep(Float.parseFloat(snapshot.child("caloriesPerRep").getValue().toString()));
-        exercise.setEquipment(snapshot.child("equipment").getValue().toString());
-        exercise.setImgUrl(snapshot.child("imgUrl").getValue().toString());
-        exercise.setLevel(snapshot.child("level").getValue().toString());
-        exercise.setMucDichTap(snapshot.child("mucDichTap").getValue().toString());
-        exercise.setMuscleFocus(snapshot.child("muscleFocus").getValue().toString());
-        exercise.setName(snapshot.child("name").getValue().toString());
-        exercise.setTypeOfExercise(snapshot.child("typeOfExercise").getValue().toString());
-        exercise.setVideoUrl(snapshot.child("videoUrl").getValue().toString());
+                ExternalData.ExercisesCurrent=exerciseArrayList;
+                ExternalData.IndexExercisesRunning=0;
 
-        return exercise;
-    }
-
-
-    private boolean isAnExercisePassedWithCondition(Exercise exercise) {
-        String conditionsWithComma="";//condition with comma between items
-        switch (fillterTypeExercise) {
-            case "Level":
-                conditionsWithComma=exercise.getLevel();
-                break;
-            case "MucDichTap":
-                conditionsWithComma=exercise.getMucDichTap();
-                break;
-            case "MuscleFocus":
-                conditionsWithComma=exercise.getMuscleFocus();
-                break;
-            case "TypeOfExercise":
-                conditionsWithComma=exercise.getTypeOfExercise();
-                break;
-        }
-        String[] arrayTempConditionCurrentExercise=conditionsWithComma.split(",");//array of conditions
-        ArrayList<String> listConditionsCurrentExercise=new ArrayList<>( Arrays.asList(arrayTempConditionCurrentExercise));//pass array condition to list
-
-        //chech this exercise is pass with filterContent condition
-        if(listConditionsCurrentExercise.contains(fillterContentExercise)){
-            return true;
-        }
-        return  false;
-    }
-
-    private  void readData(final FirebaseCallBack firebaseCallBack){
-        Query query = myRef.child("Exercise");
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ClearAll();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
-                    Exercise exercise = GetAnExercise(snapshot);
-                    if(isAnExercisePassedWithCondition(exercise))  {
-                        exercisesList.add(exercise);
-                        setAdapterItemClick();
-
-                        rvExercises.setAdapter(clientExerciseUnitAdapter);
-
-                    }
-
-                }
-                firebaseCallBack.onCallBack(exercisesList);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                FragmentClientExerciseRun fragmentClientExerciseRun = new FragmentClientExerciseRun();
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragmentClientExerciseRun);
+                transaction.addToBackStack(null);
+                transaction.commit();
 
             }
         });
     }
-    private interface FirebaseCallBack{
-        void onCallBack(ArrayList<Exercise> list);
-    }
-    //END Function for firebase
-
 
     //BEGIN Function for Adapter item click
-    private void setAdapterItemClick() {
+    private void setAdapterItemClick(final ArrayList<Exercise> exercisesList) {
         clientExerciseUnitAdapter = new ClientExerciseUnitAdapter(getContext(), exercisesList);
         clientExerciseUnitAdapter.setOnItemClickListener(new ClientExerciseUnitAdapter.OnItemClickListener() {
 
@@ -233,19 +141,6 @@ public class FragmentClientExerciseUnitList extends Fragment implements ClientEx
 
     }
     //END Function for Adapter item click
-
-    //BEGIN Function for list exercise
-    private void ClearAll() {
-        if (exercisesList != null) {
-            exercisesList.clear();
-            if (clientExerciseUnitAdapter != null) {
-                clientExerciseUnitAdapter.notifyDataSetChanged();
-            }
-        }
-
-        exercisesList = new ArrayList<>();
-    }
-    //END Function for list exercise
 
 
 }

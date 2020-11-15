@@ -89,7 +89,7 @@ public class FragmentClientExerciseDetail extends Fragment {
             vvExercise=view.findViewById(R.id.vvExercise);
             lblEquipment=view.findViewById(R.id.lblEquipment);
             lblcaloriesPerRep=view.findViewById(R.id.lblcaloriesPerRep);
-            lblNameExercise=view.findViewById(R.id.lblNameExercise);
+            lblNameExercise=view.findViewById(R.id.lblNameOfExercise);
             lblMuscleGroup=view.findViewById(R.id.lblMuscleGroup);
             lblLevel=view.findViewById(R.id.lblLevel);
         //END declare
@@ -108,7 +108,7 @@ public class FragmentClientExerciseDetail extends Fragment {
     }
     private void setVideoView(){
 
-        vvExercise.setVideoURI(Uri.parse("https://firebasestorage.googleapis.com/v0/b/workoutapp-9e3e6.appspot.com/o/Video%2FThe%20Push-Up.mp4?alt=media&token=fd7c69db-99d3-4678-86f4-a90561270954"));
+        vvExercise.setVideoURI(Uri.parse(exercise.getVideoUrl()));
         mediaController=new MediaController(getContext());
         mediaController.setAnchorView(vvExercise);
         vvExercise.setMediaController(mediaController);

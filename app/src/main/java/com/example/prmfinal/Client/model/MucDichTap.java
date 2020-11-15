@@ -2,7 +2,7 @@ package com.example.prmfinal.Client.model;
 
 public class MucDichTap {
 
-    private long id;
+    private String id;
     private String title;
     private int thoiGianTap;
     private long thoiGianNghi;
@@ -16,11 +16,11 @@ public class MucDichTap {
         this.thoiGianNghi = thoiGianNghi;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

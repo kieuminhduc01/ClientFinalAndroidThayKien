@@ -1,7 +1,7 @@
 package com.example.prmfinal.Client.model;
 
 public class Exercise {
-    private long id;
+    private String id;
     private String name;
     private float caloriesPerRep;
     private String muscleFocus;
@@ -27,11 +27,11 @@ public class Exercise {
         this.imgUrl = imgUrl;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

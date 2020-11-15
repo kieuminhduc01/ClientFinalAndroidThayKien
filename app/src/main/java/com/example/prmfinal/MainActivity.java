@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExercise;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnitList;
 import com.example.prmfinal.Client.chucNang.PersonalInformation.FragmentClientPersonalInformation;
+import com.example.prmfinal.Client.chucNang.Shopping.FragmentProductList;
 import com.example.prmfinal.Client.constant.model.ExerciseFillterType;
 import com.example.prmfinal.Client.constant.model.Level;
 import com.example.prmfinal.Client.data.ExternalData;
@@ -37,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.nav_exercise:
+
                             break;
 
                         case R.id.nav_personal_information:
+                            selectedFragment=new FragmentProductList();
                             break;
 
                         case R.id.nav_nutries:

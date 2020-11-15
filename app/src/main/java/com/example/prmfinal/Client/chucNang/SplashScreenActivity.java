@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.prmfinal.Client.dao.ExerciseDao;
+import com.example.prmfinal.Client.dao.ProductDao;
 import com.example.prmfinal.Client.dao.UserDao;
 import com.example.prmfinal.LoginRegisterActivity;
 import com.example.prmfinal.R;
@@ -29,6 +30,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         ExerciseDao exerciseDao = new ExerciseDao();
         exerciseDao.FillDataToExternalDataExercise();
+
+        ProductDao productDao = new ProductDao();
+        productDao.FillDataToExternalDataProduct();
 
         UserDao userDao = new UserDao();
         userDao.FillDataToExternalDataUserName();

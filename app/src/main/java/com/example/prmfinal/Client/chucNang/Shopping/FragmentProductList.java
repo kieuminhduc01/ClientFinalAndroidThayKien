@@ -1,5 +1,7 @@
 package com.example.prmfinal.Client.chucNang.Shopping;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,12 +16,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.prmfinal.Client.chucNang.Excercise.Adapter.ClientExerciseUnitAdapter;
+import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseDetail;
+import com.example.prmfinal.Client.constant.model.Order;
+import com.example.prmfinal.Client.constant.model.TypeProductList;
+import com.example.prmfinal.Client.dao.OrderDao;
 import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.model.Product;
 import com.example.prmfinal.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Currency;
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +44,9 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
     private ProductAdapter productAdapter;
     private static ArrayList<Product> productArrayList;
     private Button btnOder;
+    private Button btnCart;
+    private TextView txtTotalAmount;
+    private static String typeProductList;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,9 +57,10 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
     private String mParam1;
     private String mParam2;
 
-    public FragmentProductList() {
+    public FragmentProductList(ArrayList<Product> productArrayList, String cartOrMarket) {
         // Required empty public constructor
-        productArrayList= ExternalData.Products;
+        this.productArrayList = productArrayList;
+        this.typeProductList = cartOrMarket;
     }
 
     /**
@@ -57,7 +73,7 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentProductList newInstance(String param1, String param2) {
-        FragmentProductList fragment = new FragmentProductList();
+        FragmentProductList fragment = new FragmentProductList(productArrayList, typeProductList);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -80,13 +96,13 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_product_list, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        //BEGIN define
         btnOder = view.findViewById(R.id.btnOrder);
+        btnCart = view.findViewById(R.id.btnCart);
 
         //recycle view
         rvProducts = view.findViewById(R.id.rvProduct);
@@ -97,17 +113,69 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
         setAdapterItemClick(productArrayList);
         rvProducts.setAdapter(productAdapter);
 
+        txtTotalAmount = (TextView) view.findViewById(R.id.txtTotalAmount);
 
+        if (typeProductList.equals(TypeProductList.Market)) {
+            btnOder.setVisibility(View.GONE);
+            txtTotalAmount.setVisibility(View.GONE);
+        }
+        if (typeProductList.equals(TypeProductList.Order)) {
+            btnOder.setVisibility(View.GONE);
+        }
+
+
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Product> productArrayList = new ArrayList<>();
+                for (Product product : ExternalData.Products) {
+                    if (product.getQuantiy() > 0) {
+                        productArrayList.add(product);
+                    }
+                }
+
+                FragmentProductList fragmentProductList = new FragmentProductList(productArrayList, TypeProductList.Cart);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragmentProductList);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+
+            }
+        });
+        btnOder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<Product> productArrayList = new ArrayList<>();
+                for (Product product : ExternalData.Products) {
+                    if (product.getQuantiy() > 0) {
+                        productArrayList.add(product);
+                    }
+                }
+
+                setExternalOrder(productArrayList);
+                OrderDao orderDao=new OrderDao();
+                orderDao.insertIntoFireBase(ExternalData.Order);
+
+                FragmentProductList fragmentProductList = new FragmentProductList(ExternalData.Order.getItems(), TypeProductList.Order);
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragmentProductList);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     //BEGIN Function for Adapter item click
     private void setAdapterItemClick(final ArrayList<Product> productArrayList) {
-        productAdapter = new ProductAdapter(getContext(), productArrayList);
+        productAdapter = new ProductAdapter(getContext(), this, productArrayList, typeProductList);
         productAdapter.setOnItemClickListener(new ProductAdapter.OnItemClickListener() {
 
             @Override
             public void onItemClick(int position) {
-                FragmentProductDetail fragmentProductDetail = new FragmentProductDetail();
+                FragmentProductDetail fragmentProductDetail = new FragmentProductDetail(productArrayList.get(position));
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.fragment_container, fragmentProductDetail);
@@ -119,8 +187,31 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
 
     @Override
     public void onItemClick(int position) {
-
     }
+
     //END Function for Adapter item click
+    public void setToalAmount() {
+        float totalAmount = 0;
+        for (Product product : ExternalData.Products) {
+            if (product.getQuantiy() != 0) {
+                totalAmount += product.getQuantiy() * product.getSalePrice();
+            }
+        }
+        txtTotalAmount.setText(String.valueOf(totalAmount));
+    }
+
+    public static String getNow() {
+        SimpleDateFormat ISO_8601_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:sss'Z'");
+        String now = ISO_8601_FORMAT.format(new Date());
+        return now;
+    }
+    private void setExternalOrder(ArrayList<Product> productArrayList){
+        ExternalData.Order.setCreatedDate(getNow());
+        ExternalData.Order.setCustomerId(ExternalData.CurrentUser.getId());
+        ExternalData.Order.setItems(productArrayList);
+        ExternalData.Order.setId(UUID.randomUUID().toString());
+        ExternalData.Order.setStatus("Pending");
+        ExternalData.Order.setTotalAmount(txtTotalAmount.getText().toString());
+    }
 
 }

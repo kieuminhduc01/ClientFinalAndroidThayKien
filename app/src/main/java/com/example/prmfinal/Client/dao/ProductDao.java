@@ -66,9 +66,9 @@ public class ProductDao {
         product.setId(snapshot.child("id").getValue().toString());
         product.setImgUrl(snapshot.child("imgUrl").getValue().toString());
         product.setName(snapshot.child("name").getValue().toString());
-        product.setQuantiy(Integer.parseInt(snapshot.child("quantiy").getValue().toString()));
+        product.setQuantiy(0);
         product.setSalePrice(Float.parseFloat(snapshot.child("salePrice").getValue().toString()));
-
+        product.setCostOfGoodSold(Float.parseFloat(snapshot.child("costOfGoodSold").getValue().toString()));
         return product;
     }
 

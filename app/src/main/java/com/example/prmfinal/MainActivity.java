@@ -13,6 +13,7 @@ import com.example.prmfinal.Client.chucNang.PersonalInformation.FragmentClientPe
 import com.example.prmfinal.Client.chucNang.Shopping.FragmentProductList;
 import com.example.prmfinal.Client.constant.model.ExerciseFillterType;
 import com.example.prmfinal.Client.constant.model.Level;
+import com.example.prmfinal.Client.constant.model.TypeProductList;
 import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.logicUtil.ScuccessLogic;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case R.id.nav_personal_information:
-                            selectedFragment=new FragmentProductList();
+                            selectedFragment=new FragmentProductList(ExternalData.Products, TypeProductList.Market);
                             break;
 
                         case R.id.nav_nutries:

@@ -7,7 +7,8 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Client.chucNang.Excercise.FragmentClientExercise">
+    tools:context=".Client.chucNang.Excercise.FragmentClientExercise"
+    android:background="@drawable/background_login">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -402,6 +403,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="30dp"
                 android:text="Body path"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -413,6 +417,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
                 android:text="Level"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hsvBodyPath" />
 
@@ -424,6 +431,9 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
                 android:text="Goal"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hsvLevel" />
 
@@ -435,10 +445,11 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
                 android:text="Kind of exercise"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hsvGoal" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

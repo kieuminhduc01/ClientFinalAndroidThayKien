@@ -104,6 +104,7 @@ public class FragmentLoginRegister extends Fragment {
         btnLogin = (Button) view.findViewById(R.id.btnLogin);
 
         User existUser = getUserLogin();
+        ExternalData.CurrentUser=existUser;
         if (!existUser.getId().equals("")) {
             txtUsername.setText(existUser.getUserName());
             txtPassword.setText(existUser.getPassword());
@@ -152,9 +153,6 @@ public class FragmentLoginRegister extends Fragment {
             transaction.replace(R.id.frameLayout, fragmentClientPersonalInformation);
             transaction.addToBackStack(null);
             transaction.commit();
-
-//            UserDao userDao = new UserDao();
-//            userDao.insertIntoFireBase(user);
         }
 
     }

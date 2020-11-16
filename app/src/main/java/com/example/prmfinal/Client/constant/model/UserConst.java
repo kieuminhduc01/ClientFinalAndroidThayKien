@@ -2,10 +2,10 @@ package com.example.prmfinal.Client.constant.model;
 
 public class UserConst {
     //Begin login
-    public static String id="id";
-    public static  String userName="userName";
-    public static String password="password";
-    public static String role="role";
+   public static String id="id";
+   public static String userName="userName";
+   public static String password="password";
+   public static String role="role";
     //End login
 
     //Begin contact

@@ -8,19 +8,19 @@ import com.example.prmfinal.Client.model.ExerciseListTenDays;
 import com.example.prmfinal.Client.model.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ScuccessLogic {
 
     public static ArrayList<Exercise> ExercisesSuggest() {
         ArrayList<Exercise> exerciseArrayList = new ArrayList<>();
-        ArrayList<Integer> randomIndexExercise = RandomSuffle.getFiveNumber(ExternalData.Exercises.size());
+        List<Integer> randomIndexExercise = RandomSuffle.getFiveNumber(ExternalData.Exercises.size());
 
         for (int i = 0; i < ExternalData.Exercises.size(); i++) {
-            exerciseArrayList.add(ExternalData.Exercises.get(randomIndexExercise.get(i)));
             if (i == 4){
                 break;
             }
-
+            exerciseArrayList.add(ExternalData.Exercises.get(randomIndexExercise.get(i)));
         }
         return  exerciseArrayList;
     }

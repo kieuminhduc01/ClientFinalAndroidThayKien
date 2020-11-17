@@ -2,6 +2,7 @@ package com.example.prmfinal.Client.logicUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class RandomSuffle {
 
@@ -10,14 +11,15 @@ public class RandomSuffle {
 
     }
 
-    public static ArrayList<Integer> getFiveNumber(int size) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+    public static List<Integer> getFiveNumber(int size) {
+        List<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < size; i++) {
             list.add(new Integer(i));
         }
         Collections.shuffle(list);
         if (list.size() > 4){
-            return (ArrayList<Integer>) list.subList(0, 4);
+
+            return list.subList(0, 4);
         }
         else {
             return list;

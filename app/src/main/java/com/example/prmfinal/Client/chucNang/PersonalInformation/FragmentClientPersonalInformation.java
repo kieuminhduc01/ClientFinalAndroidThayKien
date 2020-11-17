@@ -92,7 +92,7 @@ public class FragmentClientPersonalInformation extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               setMoreUserInfor();
+                setMoreUserInfor();
 
                 FragmentClientBodyInfo fragmentClientPersonalInformation = new FragmentClientBodyInfo(user);
                 FragmentManager manager = getFragmentManager();

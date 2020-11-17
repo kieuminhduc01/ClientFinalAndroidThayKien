@@ -11,10 +11,10 @@
     <string name="goal">Goal</string>
     <string name="level">Level</string>
     <string name="save">Save</string>
-    <string name="weight">Weight</string>
+    <string name="weight">Weight(Kg)</string>
     <string name="body_path">Body path</string>
-    <string name="kind_of_exercise">Kind of exercise</string>
-    <string name="difficulty_levels">Difficulty levels</string>
+    <string name="kind_of_exercise">Kind of exercise :</string>
+    <string name="difficulty_levels">Difficulty levels :</string>
     <string name="muscle_group">Muscle group :</string>
     <string name="equipment">Equipment</string>
     <string name="name">Name</string>
@@ -31,5 +31,5 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
-    <string name="total_amount">Total Amount</string>
+    <string name="total_amount">Total Amount :</string>
 </resources>

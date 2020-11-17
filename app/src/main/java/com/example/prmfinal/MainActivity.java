@@ -51,12 +51,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case R.id.nav_ordered:
-                            if(ExternalData.Order.getItems().size()>0){
-                                selectedFragment = new FragmentProductList(ExternalData.Order.getItems(), TypeProductList.Order);
-                            }else {
-                                selectedFragment = new FragmentProductList(ExternalData.Products, TypeProductList.Market);
-                                Toast.makeText(getApplicationContext(),"You have to order first!",Toast.LENGTH_LONG);
-                            }
+                            selectedFragment = new FragmentProductList(ExternalData.Order.getItems(), TypeProductList.Order);
                             break;
 
                         case R.id.nav_shopping:

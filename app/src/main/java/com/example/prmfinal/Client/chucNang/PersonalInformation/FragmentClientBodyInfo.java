@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.prmfinal.Client.FuncionUtil.DataUtil;
 import com.example.prmfinal.Client.constant.listModel.ListLevel;
 import com.example.prmfinal.Client.constant.listModel.ListMucDichTap;
 import com.example.prmfinal.Client.dao.UserDao;
@@ -111,7 +114,16 @@ public class FragmentClientBodyInfo extends Fragment {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setSave(user);
+                StorageUserInFirebase(user);
+
+                DataUtil.deleteAllUserNamePassword(getContext());
+                
+                FragmentLoginRegister fragmentLoginRegister = new FragmentLoginRegister();
+                FragmentManager manager = getFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.frameLayout, fragmentLoginRegister);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
@@ -132,7 +144,7 @@ public class FragmentClientBodyInfo extends Fragment {
     //end set spinner
 
     //begin set save
-        private void setSave(User user){
+        private void StorageUserInFirebase(User user){
             getMoreInforUser(user);
 
             UserDao userDao=new UserDao();

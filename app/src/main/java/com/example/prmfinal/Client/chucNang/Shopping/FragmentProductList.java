@@ -44,9 +44,9 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
     private ProductAdapter productAdapter;
     private static ArrayList<Product> productArrayList;
     private Button btnOder;
-    private Button btnCart;
     private TextView txtTotalAmount;
     private static String typeProductList;
+    private TextView lblTotalAmount;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -102,7 +102,6 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
         super.onViewCreated(view, savedInstanceState);
 
         btnOder = view.findViewById(R.id.btnOrder);
-        btnCart = view.findViewById(R.id.btnCart);
 
         //recycle view
         rvProducts = view.findViewById(R.id.rvProduct);
@@ -114,34 +113,18 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
         rvProducts.setAdapter(productAdapter);
 
         txtTotalAmount = (TextView) view.findViewById(R.id.txtTotalAmount);
+        lblTotalAmount=(TextView)view.findViewById(R.id.lblTotalAmount);
+        setToalAmount();
 
         if (typeProductList.equals(TypeProductList.Market)) {
             btnOder.setVisibility(View.GONE);
             txtTotalAmount.setVisibility(View.GONE);
+            lblTotalAmount.setVisibility(View.GONE);
         }
         if (typeProductList.equals(TypeProductList.Order)) {
             btnOder.setVisibility(View.GONE);
         }
 
-
-        btnCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ArrayList<Product> productArrayList = new ArrayList<>();
-                for (Product product : ExternalData.Products) {
-                    if (product.getQuantiy() > 0) {
-                        productArrayList.add(product);
-                    }
-                }
-
-                FragmentProductList fragmentProductList = new FragmentProductList(productArrayList, TypeProductList.Cart);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.fragment_container, fragmentProductList);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
-        });
         btnOder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -9,7 +9,7 @@ public class Order {
     private String customerId;
     private String deliveredDate = "";
     private String id;
-    private ArrayList<Product> items;
+    private ArrayList<Product> items=new ArrayList<Product>();
     private String status;
     private String totalAmount;
 

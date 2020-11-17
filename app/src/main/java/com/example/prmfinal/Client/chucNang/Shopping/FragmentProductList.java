@@ -140,8 +140,6 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
                 transaction.replace(R.id.fragment_container, fragmentProductList);
                 transaction.addToBackStack(null);
                 transaction.commit();
-
-
             }
         });
         btnOder.setOnClickListener(new View.OnClickListener() {
@@ -157,13 +155,6 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
                 setExternalOrder(productArrayList);
                 OrderDao orderDao=new OrderDao();
                 orderDao.insertIntoFireBase(ExternalData.Order);
-
-                FragmentProductList fragmentProductList = new FragmentProductList(ExternalData.Order.getItems(), TypeProductList.Order);
-                FragmentManager manager = getFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.fragment_container, fragmentProductList);
-                transaction.addToBackStack(null);
-                transaction.commit();
             }
         });
     }

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExercise;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnitList;
@@ -16,7 +17,10 @@ import com.example.prmfinal.Client.constant.model.Level;
 import com.example.prmfinal.Client.constant.model.TypeProductList;
 import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.logicUtil.ScuccessLogic;
+import com.example.prmfinal.Client.model.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ExternalData.ExercisesSuggess= ScuccessLogic.ExercisesSuggest();
+        ExternalData.ExercisesSuggess = ScuccessLogic.ExercisesSuggest();
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemReselectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FragmentClientExercise()).commit();
@@ -39,15 +43,30 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch (menuItem.getItemId()) {
                         case R.id.nav_exercise:
-
-                            break;
-
-                        case R.id.nav_personal_information:
-                            selectedFragment=new FragmentProductList(ExternalData.Products, TypeProductList.Market);
-                            break;
-
-                        case R.id.nav_nutries:
                             selectedFragment = new FragmentClientExercise();
+                            break;
+
+                        case R.id.nav_choseProduct:
+                            selectedFragment = new FragmentProductList(ExternalData.Products, TypeProductList.Market);
+                            break;
+
+                        case R.id.nav_ordered:
+                            if(ExternalData.Order.getItems().size()>0){
+                                selectedFragment = new FragmentProductList(ExternalData.Order.getItems(), TypeProductList.Order);
+                            }else {
+                                selectedFragment = new FragmentProductList(ExternalData.Products, TypeProductList.Market);
+                                Toast.makeText(getApplicationContext(),"You have to order first!",Toast.LENGTH_LONG);
+                            }
+                            break;
+
+                        case R.id.nav_shopping:
+                            ArrayList<Product> productArrayList = new ArrayList<>();
+                            for (Product product : ExternalData.Products) {
+                                if (product.getQuantiy() > 0) {
+                                    productArrayList.add(product);
+                                }
+                            }
+                            selectedFragment = new FragmentProductList(productArrayList, TypeProductList.Cart);
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

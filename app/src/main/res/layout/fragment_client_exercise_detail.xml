@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Client.chucNang.Excercise.FragmentClientExerciseDetail">
+    tools:context=".Client.chucNang.Excercise.FragmentClientExerciseDetail"
+    android:background="@drawable/background_login">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -17,15 +18,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lblEquipment"
+        android:id="@+id/txtEquipment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
-        android:text="Equipment"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="18dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/lblEquipment"
         app:layout_constraintTop_toBottomOf="@+id/lblMuscleGroup" />
+
+    <TextView
+        android:id="@+id/txtCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/lblcaloriesPerRep"
+        app:layout_constraintTop_toBottomOf="@+id/lblNameOfExercise" />
 
     <TextView
         android:id="@+id/lblcaloriesPerRep"
@@ -33,10 +49,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:text="@string/calories"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNameOfExercise" />
+
+    <TextView
+        android:id="@+id/txtExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="80dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/lblNameOfExercise"
+        app:layout_constraintTop_toBottomOf="@+id/vvExercise" />
 
     <TextView
         android:id="@+id/lblNameOfExercise"
@@ -44,20 +76,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="60dp"
-        android:text="TextView"
+        android:layout_marginTop="80dp"
+        android:text="@string/exercise_name"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vvExercise" />
 
     <TextView
-        android:id="@+id/lblMuscleGroup"
+        android:id="@+id/txtMuscleGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="16dp"
-        android:text="Muscle group"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/lblMuscleGroup"
         app:layout_constraintTop_toBottomOf="@+id/lblLevel" />
 
     <TextView
@@ -67,8 +104,52 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="52dp"
-        android:text="Difficulty levels"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblcaloriesPerRep" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCalories"
+        tools:text="Level :" />
+
+    <TextView
+        android:id="@+id/txtLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="52dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/lblLevel"
+        app:layout_constraintTop_toBottomOf="@+id/txtCalories" />
+
+    <TextView
+        android:id="@+id/lblEquipment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/equipments"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblMuscleGroup" />
+
+    <TextView
+        android:id="@+id/lblMuscleGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/muscle_group"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblLevel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

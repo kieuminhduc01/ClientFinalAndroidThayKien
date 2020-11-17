@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="398dp">
+    tools:layout_editor_absoluteY="398dp"
+    android:background="@drawable/background_login"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Client.chucNang.PersonalInformation.FragmentClientPersonalInformation">
+        tools:context=".Client.chucNang.PersonalInformation.FragmentClientPersonalInformation"
+        >
         <!-- TODO: Update blank fragment layout -->
 
         <TextView
@@ -20,9 +23,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="140dp"
             android:layout_marginLeft="140dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="150dp"
             android:text="Account"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="35dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,51 +33,63 @@
         <TextView
             android:id="@+id/txtUserNameRegister"
             android:layout_width="325dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="70dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <EditText
             android:id="@+id/txtName"
             android:layout_width="325dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="35dp"
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtUserNameRegister" />
 
         <EditText
             android:id="@+id/txtEmail"
             android:layout_width="325dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="35dp"
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
         <EditText
             android:id="@+id/txtPhoneNumber"
             android:layout_width="325dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="35dp"
             android:ems="10"
             android:hint="Phone"
             android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
@@ -84,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
             android:layout_marginLeft="160dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:text="Save"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtPhoneNumber" />

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Client.chucNang.PersonalInformation.FragmentLoginRegister"
-    android:background="@drawable/background_login">
+    android:background="@drawable/background_login"
+    >
 
     <EditText
         android:id="@+id/txtUserNameRegister"
@@ -15,7 +16,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="204dp"
         android:ems="10"
-        android:hint="User Name"
+        android:hint="@string/user_name"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -31,7 +32,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="96dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -46,7 +47,7 @@
         android:layout_marginStart="102dp"
         android:layout_marginLeft="102dp"
         android:layout_marginTop="76dp"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
@@ -57,7 +58,7 @@
         android:layout_marginStart="43dp"
         android:layout_marginLeft="43dp"
         android:layout_marginTop="76dp"
-        android:text="Register"
+        android:text="@string/register"
         app:layout_constraintStart_toEndOf="@+id/btnLogin"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

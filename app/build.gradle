@@ -53,4 +53,7 @@ dependencies {
 
     // Splash screen
     implementation 'gr.pantrif:easy-android-splash-screen:0.0.1'
+
+    //Design
+    implementation 'com.android.support:design:28.0.0'
 }

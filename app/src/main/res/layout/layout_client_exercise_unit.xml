@@ -25,14 +25,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/lblNameOfExercise"
+            android:id="@+id/txtExerciseName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="68dp"
             android:layout_marginLeft="68dp"
             android:layout_marginTop="36dp"
             android:textColor="#000000"
-            android:textSize="20dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imgExercise"
             app:layout_constraintTop_toTopOf="parent" />

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp">
+    tools:layout_editor_absoluteY="1dp"
+    android:background="@drawable/background_login">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
@@ -22,8 +23,8 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="40dp"
-            android:text="Trainning Information"
-            android:textColor="#000000"
+            android:text="@string/trainning_information"
+            android:textColor="#FFFFFF"
             android:textSize="35dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,10 +37,13 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="51dp"
             android:ems="10"
-            android:hint="Height(Cm)"
+            android:hint="@string/height_cm"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <EditText
             android:id="@+id/txtWeight"
@@ -49,10 +53,13 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:hint="Weight"
+            android:hint="@string/weight"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHeight" />
+            app:layout_constraintTop_toBottomOf="@+id/txtHeight"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <EditText
             android:id="@+id/txtMaxRepPushUp"
@@ -62,10 +69,13 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:hint="Max rep push up"
+            android:hint="@string/max_rep_push_up"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtWeight" />
+            app:layout_constraintTop_toBottomOf="@+id/txtWeight"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <EditText
             android:id="@+id/txtMaxRepPullUp"
@@ -75,10 +85,13 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:hint="Max rep pull up"
+            android:hint="@string/max_rep_pull_up"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPushUp" />
+            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPushUp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <EditText
             android:id="@+id/txtMaxRepSquats"
@@ -88,10 +101,13 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:hint="Max rep squats"
+            android:hint="@string/max_rep_squats"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPullUp" />
+            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPullUp"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <Spinner
             android:id="@+id/spMucDichTap"
@@ -101,7 +117,8 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="50dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepSquats" />
+            app:layout_constraintTop_toBottomOf="@+id/txtMaxRepSquats"
+            />
 
         <Spinner
             android:id="@+id/spLevel"
@@ -119,9 +136,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:text="Goal"
+            android:text="@string/goal"
             app:layout_constraintBottom_toTopOf="@+id/spMucDichTap"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -129,9 +148,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
-            android:text="Level"
+            android:text="@string/level"
             app:layout_constraintBottom_toTopOf="@+id/spLevel"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp"/>
 
         <Button
             android:id="@+id/btnSave"
@@ -140,7 +162,7 @@
             android:layout_marginStart="157dp"
             android:layout_marginLeft="157dp"
             android:layout_marginTop="11dp"
-            android:text="Save"
+            android:text="@string/save"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spLevel" />
 

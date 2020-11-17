@@ -5,15 +5,17 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Client.chucNang.Excercise.FragmentClientExerciseRest">
+    tools:context=".Client.chucNang.Excercise.FragmentClientExerciseRest"
+    android:background="@drawable/background_login">
 
     <ImageView
         android:id="@+id/imgTranningRecommend2"
-        android:layout_width="221dp"
-        android:layout_height="134dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginLeft="92dp"
+        android:layout_width="200dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginLeft="105dp"
         android:layout_marginTop="40dp"
+        android:contentDescription="@string/todo"
         android:scaleType="fitXY"
         android:src="@drawable/fragment_client_exercise_timer_icon"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,12 +25,14 @@
         android:id="@+id/lblTimerTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="144dp"
-        android:text="TextView"
+        android:layout_marginStart="168dp"
+        android:layout_marginLeft="168dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"/>
 
     <Button
         android:id="@+id/btnNextExercise"
@@ -37,7 +41,7 @@
         android:layout_marginTop="148dp"
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
-        android:text="Exercise"
+        android:text="@string/exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgTranningRecommend2" />
 
@@ -48,9 +52,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="148dp"
-        android:text="Start"
+        android:text="@string/start"
         app:layout_constraintStart_toEndOf="@+id/btnReset"
-        app:layout_constraintTop_toBottomOf="@+id/imgTranningRecommend2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgTranningRecommend2"
+        />
 
     <Button
         android:id="@+id/btnReset"
@@ -59,7 +64,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginLeft="56dp"
         android:layout_marginTop="148dp"
-        android:text="Reset"
+        android:text="@string/reset"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgTranningRecommend2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,7 @@ public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerci
             super(itemView);
 
             imageView=itemView.findViewById(R.id.imgExercise);
-            textView=itemView.findViewById(R.id.lblNameOfExercise);
+            textView=itemView.findViewById(R.id.txtExerciseName);
             itemView.setOnClickListener(new View.OnClickListener(){
 
                 @Override

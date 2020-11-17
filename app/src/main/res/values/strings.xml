@@ -2,4 +2,34 @@
     <string name="app_name">PRMFinal</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lblTitleTraningInformation">Traning Information</string>
+    <string name="trainning_information">Trainning Information</string>
+    <string name="height_cm">Height(Cm)</string>
+    <string name="max_rep_pull_up">Max rep pull up</string>
+    <string name="max_rep_push_up">Max rep push up</string>
+    <string name="max_rep_squats">Max rep squats</string>
+    <string name="goal">Goal</string>
+    <string name="level">Level</string>
+    <string name="save">Save</string>
+    <string name="weight">Weight</string>
+    <string name="body_path">Body path</string>
+    <string name="kind_of_exercise">Kind of exercise</string>
+    <string name="difficulty_levels">Difficulty levels</string>
+    <string name="muscle_group">Muscle group :</string>
+    <string name="equipment">Equipment</string>
+    <string name="name">Name</string>
+    <string name="calories">Calories : </string>
+    <string name="equipments">Equipments :</string>
+    <string name="exercise_name">Exercise name :</string>
+    <string name="exercise">Exercise</string>
+    <string name="todo">TODO</string>
+    <string name="rest">Rest</string>
+    <string name="reset">Reset</string>
+    <string name="textview">TextView</string>
+    <string name="start">Start</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="total_amount">Total Amount</string>
 </resources>

@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout7"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnitList">
+    tools:context="com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnitList"
+    android:background="@drawable/background_login">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -24,7 +25,7 @@
         android:layout_marginStart="168dp"
         android:layout_marginLeft="168dp"
         android:layout_marginTop="580dp"
-        android:text="Button"
+        android:text="@string/start"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

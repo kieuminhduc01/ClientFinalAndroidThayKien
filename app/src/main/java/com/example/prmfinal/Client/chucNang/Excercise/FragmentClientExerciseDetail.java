@@ -87,10 +87,10 @@ public class FragmentClientExerciseDetail extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //BEGIN declare
             vvExercise=view.findViewById(R.id.vvExercise);
-            lblEquipment=view.findViewById(R.id.lblEquipment);
-            lblcaloriesPerRep=view.findViewById(R.id.lblcaloriesPerRep);
-            lblNameExercise=view.findViewById(R.id.lblNameOfExercise);
-            lblMuscleGroup=view.findViewById(R.id.lblMuscleGroup);
+            lblEquipment=view.findViewById(R.id.txtEquipment);
+            lblcaloriesPerRep=view.findViewById(R.id.txtCalories);
+            lblNameExercise=view.findViewById(R.id.txtExerciseName);
+            lblMuscleGroup=view.findViewById(R.id.txtMuscleGroup);
             lblLevel=view.findViewById(R.id.lblLevel);
         //END declare
 

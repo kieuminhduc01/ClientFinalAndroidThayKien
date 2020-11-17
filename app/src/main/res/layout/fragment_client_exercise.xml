@@ -8,7 +8,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Client.chucNang.Excercise.FragmentClientExercise"
-    android:background="@drawable/background_login">
+    android:background="@drawable/background_login"
+    >
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -18,20 +19,6 @@
         android:layout_height="150dp"
         android:scaleType="fitXY"
         android:src="@drawable/fragment_client_exercise_recommned_button_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnExerciseRecommend"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="80dp"
-        android:background="#499cf4"
-        android:text="Exercise Recommend"
-        android:textColor="#ffff"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -402,7 +389,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="30dp"
-                android:text="Body path"
+                android:text="@string/body_path"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textSize="24sp"
@@ -416,7 +403,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
-                android:text="Level"
+                android:text="@string/level"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textSize="24sp"
@@ -430,7 +417,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
-                android:text="Goal"
+                android:text="@string/goal"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textSize="24sp"
@@ -444,7 +431,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
-                android:text="Kind of exercise"
+                android:text="@string/kind_of_exercise"
                 android:textColor="#FFFFFF"
                 android:textColorHint="#FFFFFF"
                 android:textSize="24sp"

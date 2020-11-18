@@ -45,7 +45,7 @@
 
     <TextView
         android:id="@+id/lblcaloriesPerRep"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -72,11 +72,11 @@
 
     <TextView
         android:id="@+id/lblNameOfExercise"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:text="@string/exercise_name"
         android:textColor="#000000"
         android:textColorHint="#000000"
@@ -99,7 +99,7 @@
 
     <TextView
         android:id="@+id/lblLevel"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -126,7 +126,7 @@
 
     <TextView
         android:id="@+id/lblEquipment"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -140,7 +140,7 @@
 
     <TextView
         android:id="@+id/lblMuscleGroup"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"

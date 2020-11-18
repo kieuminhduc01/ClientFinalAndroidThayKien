@@ -99,7 +99,7 @@ public class FragmentClientBodyInfo extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        //begin define
         txtHeight = view.findViewById(R.id.txtHeight);
         txtWeight = view.findViewById(R.id.txtHeight);
         txtMaxRepPushUp = view.findViewById(R.id.txtMaxRepPushUp);
@@ -108,9 +108,10 @@ public class FragmentClientBodyInfo extends Fragment {
         spMucDichTap = view.findViewById(R.id.spMucDichTap);
         spLevel = view.findViewById(R.id.spLevel);
         btnSave = view.findViewById(R.id.btnSave);
-
         fillItemsForGoal();
         fillItemsForLevel();
+
+        //end define
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +147,6 @@ public class FragmentClientBodyInfo extends Fragment {
         }
     //end set spinner
 
-    //begin set save
         private void StorageUserInFirebase(User user){
             getMoreInforUser(user);
 
@@ -154,9 +154,7 @@ public class FragmentClientBodyInfo extends Fragment {
             userDao.insertIntoFireBase(user);
 
         }
-    //end set save
 
-    //begin set user
         private User getMoreInforUser(User user){
 
             user.setHeight(Integer.parseInt(txtHeight.getText().toString()));
@@ -169,5 +167,4 @@ public class FragmentClientBodyInfo extends Fragment {
 
             return  user;
         }
-    //end set user
 }

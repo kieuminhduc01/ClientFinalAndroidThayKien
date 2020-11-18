@@ -27,15 +27,15 @@ import java.util.Locale;
  */
 public class FragmentClientExerciseRest extends Fragment {
 
-    //BEGIN declare timer
+    //BEGIN declare
     private Button btnNextExercise;
-    private Button mButtonStartPause;
-    private Button mButtonReset;
+    private Button btnStartPause;
+    private Button btnReset;
     private TextView lblTimerTicker;
     private CountDownTimer mCountDownTimer;
-    private boolean mTimerRunning;
+    private boolean isTimerRunning;
     private long   mTimeLeftInMillis = ExternalData.thoiGianNghi;
-    //End declare timer
+    //End declare
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -90,9 +90,9 @@ public class FragmentClientExerciseRest extends Fragment {
 
         lblTimerTicker = view.findViewById(R.id.lblTimerTicker);
         btnNextExercise = view.findViewById(R.id.btnNextExercise);
-        mButtonStartPause = view.findViewById(R.id.btnStartPause);
-        mButtonReset = view.findViewById(R.id.btnReset);
-        mButtonReset.setEnabled(false);
+        btnStartPause = view.findViewById(R.id.btnStartPause);
+        btnReset = view.findViewById(R.id.btnReset);
+        btnReset.setEnabled(false);
 
         btnNextExercise.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,17 +106,17 @@ public class FragmentClientExerciseRest extends Fragment {
             }
         });
 
-        mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+        btnStartPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mTimerRunning) {
+                if (isTimerRunning) {
                     pauseTimer();
                 } else {
                     startTimer();
                 }
             }
         });
-        mButtonReset.setOnClickListener(new View.OnClickListener() {
+        btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resetTimer();
@@ -137,31 +137,31 @@ public class FragmentClientExerciseRest extends Fragment {
 
             @Override
             public void onFinish() {
-                mTimerRunning = false;
-                mButtonStartPause.setText("Start");
-                mButtonStartPause.setVisibility(View.INVISIBLE);
-                mButtonReset.setVisibility(View.VISIBLE);
+                isTimerRunning = false;
+                btnStartPause.setText("Start");
+                btnStartPause.setVisibility(View.INVISIBLE);
+                btnReset.setVisibility(View.VISIBLE);
                 moveToFragmentRun();
             }
         }.start();
-        mTimerRunning = true;
-        mButtonStartPause.setText("pause");
-        mButtonReset.setEnabled(true);
+        isTimerRunning = true;
+        btnStartPause.setText("pause");
+        btnReset.setEnabled(true);
     }
 
     private void pauseTimer() {
         mCountDownTimer.cancel();
-        mTimerRunning = false;
-        mButtonStartPause.setText("Start");
-        mButtonReset.setEnabled(true);
+        isTimerRunning = false;
+        btnStartPause.setText("Start");
+        btnReset.setEnabled(true);
     }
 
     private void resetTimer() {
         mTimeLeftInMillis = ExternalData.thoiGianNghi;
         mCountDownTimer.cancel();
-        mTimerRunning = false;
-        mButtonReset.setEnabled(false);
-        mButtonStartPause.setText("Start");
+        isTimerRunning = false;
+        btnReset.setEnabled(false);
+        btnStartPause.setText("Start");
         updateCountDownText();
     }
 

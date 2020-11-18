@@ -8,12 +8,12 @@
     <item
         android:id="@+id/nav_choseProduct"
         android:icon="@drawable/client_navigation_chose"
-        android:title="Cart"
+        android:title="Market"
     />
     <item
         android:id="@+id/nav_shopping"
         android:icon="@drawable/client_navigation_cart"
-        android:title="Market"
+        android:title="Cart"
     />
     <item
         android:id="@+id/nav_ordered"

@@ -82,7 +82,7 @@
 
         <EditText
             android:id="@+id/txtQuantity"
-            android:layout_width="80dp"
+            android:layout_width="170sp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"

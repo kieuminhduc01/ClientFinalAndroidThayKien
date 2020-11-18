@@ -29,6 +29,7 @@ import java.util.ArrayList;
  */
 public class FragmentProductDetail extends Fragment {
 
+    //begin declare
     private static Product product;
     private ImageView imgProduct;
     private TextView txtName;
@@ -36,6 +37,8 @@ public class FragmentProductDetail extends Fragment {
     private TextView txtDescription;
     private EditText txtQuantity;
     private Button btnOrder;
+
+    //begin declare
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

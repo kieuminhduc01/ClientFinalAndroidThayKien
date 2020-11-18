@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.model.Product;
+import com.example.prmfinal.Client.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -12,6 +13,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProductDao {
 
@@ -85,6 +87,11 @@ public class ProductDao {
         products = new ArrayList<>();
     }
     //END Function for list exercise
+    public void insertIntoFireBase (Product product){
+        HashMap hashMap = new HashMap();
+        hashMap.put(String.valueOf(product.getId()),product);
+        database.getReference().child(path).updateChildren(hashMap);
+    }
 
 
 }

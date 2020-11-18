@@ -25,6 +25,7 @@ import com.example.prmfinal.R;
  */
 public class FragmentClientExerciseDetail extends Fragment {
 
+    //begin declare variable
     private static Exercise exercise;
     private VideoView vvExercise;
     private TextView lblEquipment;
@@ -33,6 +34,8 @@ public class FragmentClientExerciseDetail extends Fragment {
     private TextView lblMuscleGroup;
     private TextView lblLevel;
     private MediaController mediaController;
+    //end declare variable
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,14 +88,15 @@ public class FragmentClientExerciseDetail extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //BEGIN declare
+        //BEGIN define
             vvExercise=view.findViewById(R.id.vvExercise);
             lblEquipment=view.findViewById(R.id.txtEquipment);
             lblcaloriesPerRep=view.findViewById(R.id.txtCalories);
             lblNameExercise=view.findViewById(R.id.txtExerciseName);
             lblMuscleGroup=view.findViewById(R.id.txtMuscleGroup);
             lblLevel=view.findViewById(R.id.lblLevel);
-        //END declare
+
+        //END define
 
         //BEGIN set component
             lblEquipment.setText(exercise.getEquipment());

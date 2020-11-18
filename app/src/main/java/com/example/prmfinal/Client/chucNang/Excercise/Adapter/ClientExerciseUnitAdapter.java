@@ -18,9 +18,12 @@ import com.bumptech.glide.Glide;
 
 
 public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerciseUnitAdapter.ViewHolder> {
+
+    //begin declare variable
     private static final String Tag="RecyclerView";
     private Context mContext;
     private ArrayList<Exercise> exerciseArrayList;
+    //end declare variable
 
     public ClientExerciseUnitAdapter(Context mContext, ArrayList<Exercise> exerciseArrayList){
         this.mContext=mContext;
@@ -38,13 +41,13 @@ public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerci
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Text view
-        holder.textView.setText(exerciseArrayList.get(position).getName());
+        holder.txtExerciseName.setText(exerciseArrayList.get(position).getName());
 
         // Image view :Glide library
 
         Glide.with(mContext)
                 .load(exerciseArrayList.get(position).getImgUrl())
-                .into(holder.imageView);
+                .into(holder.imgExercise);
 
     }
 
@@ -55,14 +58,14 @@ public class ClientExerciseUnitAdapter extends RecyclerView.Adapter<ClientExerci
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         //Widgets;
-        ImageView imageView;
-        TextView textView;
+        ImageView imgExercise;
+        TextView txtExerciseName;
 
         public ViewHolder(View itemView, final OnItemClickListener listener){
             super(itemView);
 
-            imageView=itemView.findViewById(R.id.imgExercise);
-            textView=itemView.findViewById(R.id.txtExerciseName);
+            imgExercise=itemView.findViewById(R.id.imgExercise);
+            txtExerciseName=itemView.findViewById(R.id.txtExerciseName);
             itemView.setOnClickListener(new View.OnClickListener(){
 
                 @Override

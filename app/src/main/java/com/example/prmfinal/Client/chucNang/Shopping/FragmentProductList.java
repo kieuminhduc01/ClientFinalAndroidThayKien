@@ -24,6 +24,7 @@ import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseDeta
 import com.example.prmfinal.Client.constant.model.Order;
 import com.example.prmfinal.Client.constant.model.TypeProductList;
 import com.example.prmfinal.Client.dao.OrderDao;
+import com.example.prmfinal.Client.dao.ProductDao;
 import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.model.Product;
 import com.example.prmfinal.R;
@@ -42,6 +43,7 @@ import java.util.UUID;
  */
 public class FragmentProductList extends Fragment implements ProductAdapter.OnItemClickListener {
 
+    //begin declare
     private RecyclerView rvProducts;
     private ProductAdapter productAdapter;
     private static ArrayList<Product> productArrayList;
@@ -49,6 +51,8 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
     private TextView txtTotalAmount;
     private static String typeProductList;
     private TextView lblTotalAmount;
+
+    //end declare
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -167,8 +171,12 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
     }
 
     //END Function for Adapter item click
+
+
+
     public void setToalAmount() {
         float totalAmount = 0;
+
         for (Product product : ExternalData.Products) {
             if (product.getQuantiy() != 0) {
                 totalAmount += product.getQuantiy() * product.getSalePrice();
@@ -182,6 +190,7 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
         String now = ISO_8601_FORMAT.format(new Date());
         return now;
     }
+
     private void setExternalOrder(ArrayList<Product> productArrayList){
         ExternalData.Order.setCreatedDate(getNow());
         ExternalData.Order.setCustomerId(ExternalData.CurrentUser.getId());

@@ -25,12 +25,14 @@ import com.example.prmfinal.R;
  */
 public class FragmentClientPersonalInformation extends Fragment {
 
+    //begin declare
     private TextView txtUserNameRegister;
     private EditText txtName;
     private EditText txtEmail;
     private EditText txtPhoneNumber;
     private Button btnSave;
     private static User user;
+    //end declare
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

@@ -48,7 +48,6 @@ public class FragmentClientExercise extends Fragment {
         private ImageView btnPull;
         private ImageView btnSquats;
         private ImageView btnPlank;
-
         private ImageView btnSuggess;
     //END declare button
 
@@ -195,6 +194,8 @@ public class FragmentClientExercise extends Fragment {
             }
         });
     }
+
+    //fill exercise by
     private boolean isAnExercisePassedWithCondition(Exercise exercise, String fillterTypeExercise, String fillterContentExercise) {
         String conditionsWithComma = "";//condition with comma between items
         switch (fillterTypeExercise) {

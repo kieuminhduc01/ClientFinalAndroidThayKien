@@ -33,17 +33,18 @@ import java.util.Locale;
  */
 public class FragmentClientExerciseRun extends Fragment {
 
-    private VideoView vvExercise;
-    private MediaController mediaController;
 
     //BEGIN declare timer
     private Button btnRest;
-    private Button mButtonStartPause;
-    private Button mButtonReset;
+    private Button btnStartPause;
+    private Button btnReset;
     private TextView lblTimerTicker;
     private CountDownTimer mCountDownTimer;
-    private boolean mTimerRunning;
+    private boolean isTimmerRuning;
     private long mTimeLeftInMillis=ExternalData.thoiGianTap;
+    private VideoView vvExercise;
+    private MediaController mediaController;
+
     //End declare timer
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -99,9 +100,10 @@ public class FragmentClientExerciseRun extends Fragment {
         lblTimerTicker = view.findViewById(R.id.lblTimerTicker);
         vvExercise = view.findViewById(R.id.vvExercise);
         btnRest = view.findViewById(R.id.btnRest);
-        mButtonStartPause = view.findViewById(R.id.btnStartPause);
-        mButtonReset = view.findViewById(R.id.btnReset);
-        mButtonReset.setEnabled(false);
+        btnStartPause = view.findViewById(R.id.btnStartPause);
+        btnReset = view.findViewById(R.id.btnReset);
+        btnReset.setEnabled(false);
+        //khi chua chay het list bai tap
         if(ExternalData.IndexExercisesRunning < ExternalData.ExercisesCurrent.size()){
             setVideoView();
 
@@ -112,17 +114,17 @@ public class FragmentClientExerciseRun extends Fragment {
                 }
             });
 
-            mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+            btnStartPause.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mTimerRunning) {
+                    if (isTimmerRuning) {
                         pauseTimer();
                     } else {
                         startTimer();
                     }
                 }
             });
-            mButtonReset.setOnClickListener(new View.OnClickListener() {
+            btnReset.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     resetTimer();
@@ -130,6 +132,8 @@ public class FragmentClientExerciseRun extends Fragment {
             });
             updateCountDownText();
         }
+
+        //khi da chay het list bai tap
         else {
             FragmentClientExerciseSuccess fragmentClientExerciseSuccess = new FragmentClientExerciseSuccess();
             FragmentManager manager = getFragmentManager();
@@ -154,24 +158,24 @@ public class FragmentClientExerciseRun extends Fragment {
                 moveToFragmentRest();
             }
         }.start();
-        mTimerRunning = true;
-        mButtonStartPause.setText("pause");
-        mButtonReset.setEnabled(true);
+        isTimmerRuning = true;
+        btnStartPause.setText("pause");
+        btnReset.setEnabled(true);
     }
 
     private void pauseTimer() {
         mCountDownTimer.cancel();
-        mTimerRunning = false;
-        mButtonStartPause.setText("Start");
-        mButtonReset.setEnabled(true);
+        isTimmerRuning = false;
+        btnStartPause.setText("Start");
+        btnReset.setEnabled(true);
     }
 
     private void resetTimer() {
         mTimeLeftInMillis = ExternalData.thoiGianTap;
         mCountDownTimer.cancel();
-        mTimerRunning = false;
-        mButtonReset.setEnabled(false);
-        mButtonStartPause.setText("Start");
+        isTimmerRuning = false;
+        btnReset.setEnabled(false);
+        btnStartPause.setText("Start");
         updateCountDownText();
     }
 

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class FragmentLoginRegister extends Fragment {
     private Button btnLogin;
     private Button btnRegister;
     private static Context context;
+    private CheckBox cbRememberMe;
     //End declare
 
 
@@ -102,6 +104,7 @@ public class FragmentLoginRegister extends Fragment {
         txtPassword = (EditText) view.findViewById(R.id.txtPassword);
         btnRegister = (Button) view.findViewById(R.id.btnRegister);
         btnLogin = (Button) view.findViewById(R.id.btnLogin);
+        cbRememberMe=(CheckBox) view.findViewById(R.id.cbRememberMe);
 
         User existUser = getUserLogin();
         ExternalData.CurrentUser=existUser;
@@ -127,15 +130,18 @@ public class FragmentLoginRegister extends Fragment {
         });
 
     }
+
+    //Begin function for login register
     private void register()  {
-        boolean isExist = false;
+        boolean isUserExist = false;
         for (User user : ExternalData.Users) {
             if (user.getUserName().equals(txtUsername.getText().toString())) {
-                isExist = true;
+                isUserExist = true;
                 break;
             }
         }
-        if (isExist) {
+
+        if (isUserExist) {
             Toast.makeText(getContext(), "This username is exist!", Toast.LENGTH_LONG).show();
         } else {
             //create user
@@ -156,26 +162,33 @@ public class FragmentLoginRegister extends Fragment {
     }
 
     private void login() {
-        boolean isExist = false;
+        boolean isUserExist = false;
+
         User userCurrent = new User();
         for (User user : ExternalData.Users) {
             if (user.getUserName().equals(txtUsername.getText().toString()) &&
                     user.getPassword().equals(txtPassword.getText().toString())) {
-                isExist = true;
+                isUserExist = true;
                 userCurrent = user;
-
                 break;
             }
         }
-        if (isExist) {
-            saveUserLogin(userCurrent);
 
+        if (isUserExist) {
+            if(cbRememberMe.isChecked()) {//luu lai trang thai login
+                saveUserLogin(userCurrent);
+            }
+            else {
+                removeUserLogin();
+            }
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
         } else {
 
         }
     }
+
+    //End function for login register
 
     //BEGIN function for shared preference
     private void saveUserLogin(User userCurrent) {
@@ -187,6 +200,15 @@ public class FragmentLoginRegister extends Fragment {
         editor.commit();
     }
 
+    private void removeUserLogin() {
+        SharedPreferences sharedpreferences = context.getSharedPreferences("User", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("id", "");
+        editor.putString("userName", "");
+        editor.putString("password", "");
+        editor.commit();
+    }
+
     private User getUserLogin() {
         User user = new User();
         SharedPreferences sharedpreferences = context.getSharedPreferences("User", Context.MODE_PRIVATE);
@@ -195,5 +217,6 @@ public class FragmentLoginRegister extends Fragment {
         user.setUserName(sharedpreferences.getString("userName", ""));
         return user;
     }
+
     //END function for shared preference
 }

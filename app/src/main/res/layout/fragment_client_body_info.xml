@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_main"
     tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp"
-    android:background="@drawable/background_login">
+    tools:layout_editor_absoluteY="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
@@ -24,7 +24,7 @@
             android:layout_marginLeft="36dp"
             android:layout_marginTop="40dp"
             android:text="@string/trainning_information"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:textSize="35dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,8 +39,8 @@
             android:ems="10"
             android:hint="@string/height_cm"
             android:inputType="numberDecimal"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -55,8 +55,8 @@
             android:ems="10"
             android:hint="@string/weight"
             android:inputType="numberDecimal"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtHeight" />
@@ -71,8 +71,8 @@
             android:ems="10"
             android:hint="@string/max_rep_push_up"
             android:inputType="numberDecimal"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtWeight" />
@@ -87,8 +87,8 @@
             android:ems="10"
             android:hint="@string/max_rep_pull_up"
             android:inputType="numberDecimal"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPushUp" />
@@ -103,8 +103,8 @@
             android:ems="10"
             android:hint="@string/max_rep_squats"
             android:inputType="numberDecimal"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtMaxRepPullUp" />
@@ -136,10 +136,11 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:text="@string/goal"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/spMucDichTap"
-            app:layout_constraintStart_toStartOf="parent" android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView7"
@@ -148,11 +149,11 @@
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:text="@string/level"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/spLevel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnSave"
@@ -161,7 +162,11 @@
             android:layout_marginStart="157dp"
             android:layout_marginLeft="157dp"
             android:layout_marginTop="11dp"
+            android:background="@drawable/button_bg_rounded_corners"
+            android:bottomLeftRadius="10dp"
+            android:bottomRightRadius="10dp"
             android:text="@string/save"
+            android:topLeftRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spLevel" />
 

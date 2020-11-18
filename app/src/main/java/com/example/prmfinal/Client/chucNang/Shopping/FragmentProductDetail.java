@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.prmfinal.Client.data.ExternalData;
@@ -109,6 +110,7 @@ public class FragmentProductDetail extends Fragment {
             public void onClick(View v) {
                 product.setQuantiy(Integer.parseInt(txtQuantity.getText().toString()));
                 ArrayList<Product> e=ExternalData.Products;
+                Toast.makeText(getContext(),"Ordered",Toast.LENGTH_LONG).show();
             }
         });
     }

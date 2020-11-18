@@ -17,7 +17,6 @@
     <string name="difficulty_levels">Difficulty levels :</string>
     <string name="muscle_group">Muscle group :</string>
     <string name="equipment">Equipment</string>
-    <string name="name">Name</string>
     <string name="calories">Calories : </string>
     <string name="equipments">Equipments :</string>
     <string name="exercise_name">Exercise name :</string>
@@ -32,4 +31,9 @@
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="total_amount">Total Amount :</string>
+    <string name="description">Description</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>

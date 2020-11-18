@@ -136,10 +136,8 @@ public class FragmentLoginRegister extends Fragment {
             }
         }
         if (isExist) {
-            Toast.makeText(getContext(), "This Username is exist!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "This username is exist!", Toast.LENGTH_LONG).show();
         } else {
-
-
             //create user
             User user = new User();
             user.setUserName(txtUsername.getText().toString());

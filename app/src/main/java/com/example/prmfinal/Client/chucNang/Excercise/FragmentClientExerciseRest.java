@@ -141,6 +141,7 @@ public class FragmentClientExerciseRest extends Fragment {
                 mButtonStartPause.setText("Start");
                 mButtonStartPause.setVisibility(View.INVISIBLE);
                 mButtonReset.setVisibility(View.VISIBLE);
+                moveToFragmentRun();
             }
         }.start();
         mTimerRunning = true;
@@ -169,5 +170,13 @@ public class FragmentClientExerciseRest extends Fragment {
         int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
         lblTimerTicker.setText(timeLeftFormatted);
+    }
+    private void moveToFragmentRun(){
+        FragmentClientExerciseRun fragmentClientExerciseRun = new FragmentClientExerciseRun();
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragment_container, fragmentClientExerciseRun);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

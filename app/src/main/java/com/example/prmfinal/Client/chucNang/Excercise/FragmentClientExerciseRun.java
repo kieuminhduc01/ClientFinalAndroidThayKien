@@ -102,7 +102,7 @@ public class FragmentClientExerciseRun extends Fragment {
         mButtonStartPause = view.findViewById(R.id.btnStartPause);
         mButtonReset = view.findViewById(R.id.btnReset);
         mButtonReset.setEnabled(false);
-        if(ExternalData.IndexExercisesRunning<ExternalData.ExercisesCurrent.size()){
+        if(ExternalData.IndexExercisesRunning < ExternalData.ExercisesCurrent.size()){
             setVideoView();
 
             btnRest.setOnClickListener(new View.OnClickListener() {
@@ -131,10 +131,10 @@ public class FragmentClientExerciseRun extends Fragment {
             updateCountDownText();
         }
         else {
-            FragmentClientExercise fragmentClientExerciseRest = new FragmentClientExercise();
+            FragmentClientExerciseSuccess fragmentClientExerciseSuccess = new FragmentClientExerciseSuccess();
             FragmentManager manager = getFragmentManager();
             FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.fragment_container, fragmentClientExerciseRest);
+            transaction.replace(R.id.fragment_container, fragmentClientExerciseSuccess);
             transaction.addToBackStack(null);
             transaction.commit();
         }

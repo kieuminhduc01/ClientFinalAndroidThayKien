@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.prmfinal.Client.FuncionUtil.DataUtil;
 import com.example.prmfinal.Client.constant.listModel.ListLevel;
@@ -124,6 +125,8 @@ public class FragmentClientBodyInfo extends Fragment {
                 transaction.replace(R.id.frameLayout, fragmentLoginRegister);
                 transaction.addToBackStack(null);
                 transaction.commit();
+
+                Toast.makeText(getContext(),"Saved",Toast.LENGTH_LONG).show();
             }
         });
 

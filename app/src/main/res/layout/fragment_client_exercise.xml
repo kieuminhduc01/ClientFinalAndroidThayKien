@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Client.chucNang.Excercise.FragmentClientExercise"
-    android:background="@drawable/background_login"
+    android:background="@drawable/background_main"
     >
 
     <!-- TODO: Update blank fragment layout -->
@@ -30,9 +30,9 @@
         app:layout_constraintTop_toBottomOf="@id/imgTranningRecommend">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clBody"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:id="@+id/clBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <HorizontalScrollView
                 android:id="@+id/hsvLevel"
@@ -390,8 +390,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="30dp"
                 android:text="@string/body_path"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -404,8 +404,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
                 android:text="@string/level"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hsvBodyPath" />
@@ -418,8 +418,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
                 android:text="@string/goal"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hsvLevel" />
@@ -432,8 +432,8 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="50dp"
                 android:text="@string/kind_of_exercise"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#FFFFFF"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/hsvGoal" />

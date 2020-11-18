@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.prmfinal.Client.chucNang.Excercise.Adapter.ClientExerciseUnitAdapter;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseDetail;
@@ -27,6 +28,7 @@ import com.example.prmfinal.Client.data.ExternalData;
 import com.example.prmfinal.Client.model.Product;
 import com.example.prmfinal.R;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -138,6 +140,7 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
                 setExternalOrder(productArrayList);
                 OrderDao orderDao=new OrderDao();
                 orderDao.insertIntoFireBase(ExternalData.Order);
+                Toast.makeText(getContext(),"Success!",Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -171,7 +174,7 @@ public class FragmentProductList extends Fragment implements ProductAdapter.OnIt
                 totalAmount += product.getQuantiy() * product.getSalePrice();
             }
         }
-        txtTotalAmount.setText(String.valueOf(totalAmount));
+        txtTotalAmount.setText(String.valueOf((double) Math.round(totalAmount * 100) / 100));
     }
 
     public static String getNow() {

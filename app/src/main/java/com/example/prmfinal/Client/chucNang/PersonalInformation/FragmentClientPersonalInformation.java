@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -100,6 +101,7 @@ public class FragmentClientPersonalInformation extends Fragment {
                 transaction.replace(R.id.frameLayout, fragmentClientPersonalInformation);
                 transaction.addToBackStack(null);
                 transaction.commit();
+                Toast.makeText(getContext(),"Saved",Toast.LENGTH_LONG).show();
             }
         });
 

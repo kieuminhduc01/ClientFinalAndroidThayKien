@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Client.chucNang.PersonalInformation.FragmentLoginRegister"
-    android:background="@drawable/background_login"
+    android:background="@drawable/background_main"
     >
 
     <EditText
@@ -18,8 +18,8 @@
         android:ems="10"
         android:hint="@string/user_name"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,8 +34,8 @@
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUserNameRegister" />
@@ -49,7 +49,9 @@
         android:layout_marginTop="76dp"
         android:text="@string/login"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+        android:background="@drawable/button_bg_rounded_corners"
+        />
 
     <Button
         android:id="@+id/btnRegister"
@@ -60,5 +62,7 @@
         android:layout_marginTop="76dp"
         android:text="@string/register"
         app:layout_constraintStart_toEndOf="@+id/btnLogin"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
+        android:background="@drawable/button_bg_rounded_corners"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

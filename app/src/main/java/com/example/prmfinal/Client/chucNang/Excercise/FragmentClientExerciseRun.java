@@ -135,12 +135,7 @@ public class FragmentClientExerciseRun extends Fragment {
 
         //khi da chay het list bai tap
         else {
-            FragmentClientExerciseSuccess fragmentClientExerciseSuccess = new FragmentClientExerciseSuccess();
-            FragmentManager manager = getFragmentManager();
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.replace(R.id.fragment_container, fragmentClientExerciseSuccess);
-            transaction.addToBackStack(null);
-            transaction.commit();
+           moveToFragmentSuccess();
         }
 
     }
@@ -208,5 +203,20 @@ public class FragmentClientExerciseRun extends Fragment {
                 vvExercise.start();
             }
         });
+    }
+    private void moveToFragmentSuccess(){
+        double totalCalories=0;
+
+        for(Exercise exercise :ExternalData.ExercisesCurrent){
+            totalCalories+=exercise.getCaloriesPerRep();
+        }
+
+        String totalCaloriesString= String.valueOf((double) Math.round(totalCalories * 100) / 100);
+        FragmentClientExerciseSuccess fragmentClientExerciseSuccess = new FragmentClientExerciseSuccess(totalCaloriesString);
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.fragment_container, fragmentClientExerciseSuccess);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

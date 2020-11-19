@@ -2,11 +2,14 @@ package com.example.prmfinal.Client.chucNang.Excercise;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.prmfinal.R;
 
@@ -17,6 +20,9 @@ import com.example.prmfinal.R;
  */
 public class FragmentClientExerciseSuccess extends Fragment {
 
+    private static String caloriesBurned;
+    private TextView txtCaloriesBurned;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -26,8 +32,9 @@ public class FragmentClientExerciseSuccess extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentClientExerciseSuccess() {
+    public FragmentClientExerciseSuccess(String caloriesBurned) {
         // Required empty public constructor
+        this.caloriesBurned=caloriesBurned;
     }
 
     /**
@@ -40,7 +47,7 @@ public class FragmentClientExerciseSuccess extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static FragmentClientExerciseSuccess newInstance(String param1, String param2) {
-        FragmentClientExerciseSuccess fragment = new FragmentClientExerciseSuccess();
+        FragmentClientExerciseSuccess fragment = new FragmentClientExerciseSuccess(caloriesBurned);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,5 +69,12 @@ public class FragmentClientExerciseSuccess extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_client_exercise_success, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        txtCaloriesBurned=(TextView) view.findViewById(R.id.txtCalories);
+        txtCaloriesBurned.setText(caloriesBurned);
     }
 }

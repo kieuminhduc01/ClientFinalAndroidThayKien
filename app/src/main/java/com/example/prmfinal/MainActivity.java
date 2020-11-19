@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExercise;
 import com.example.prmfinal.Client.chucNang.Excercise.FragmentClientExerciseUnitList;
 import com.example.prmfinal.Client.chucNang.PersonalInformation.FragmentClientPersonalInformation;
+import com.example.prmfinal.Client.chucNang.PersonalInformation.FragmentUser;
 import com.example.prmfinal.Client.chucNang.Shopping.FragmentProductList;
 import com.example.prmfinal.Client.constant.model.ExerciseFillterType;
 import com.example.prmfinal.Client.constant.model.Level;
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                             selectedFragment = new FragmentProductList(productArrayList, TypeProductList.Cart);
+                            break;
+                        case R.id.nav_user:
+                            selectedFragment = new FragmentUser();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
